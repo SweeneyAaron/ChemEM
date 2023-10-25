@@ -10,22 +10,95 @@ Created on Wed May 31 11:13:51 2023
 
 import sys
 from ChemEM.system import System, SystemFactory, Config
+import os
+
+def test():
+    if len(sys.argv) != 2:
+        print("Usage: chemem.test <pdb_id>")
+        print('Currently included PDB IDs: 7jjo')
+        sys.exit(1)
+        
+    pdb_id = sys.argv[1]
+    data_path = f'{os.path.dirname(os.path.abspath(__file__))}/test_data/'
+    conf_path = os.path.join(data_path, f'{pdb_id.lower()}_conf.txt')
+    new_output_dir = f'./ChemEM_test_{pdb_id}' 
+    os.mkdir(new_output_dir)
+    new_conf_path = get__test_conf_file(conf_path, new_output_dir, data_path, pdb_id)
+    
+    try:
+        # read conf file
+        config = Config()
+        config.load_config(new_conf_path)
+    
+    except FileNotFoundError:
+        print(f'FileNotFoundError no file named: { new_conf_path}')
+        sys.exit(1)
+    # set up system
+    new_system = SystemFactory()
+    new_system.create_system(config)
+    # run commands
+    new_system.make_run()
+    
+    sys.exit(1)
+
+def get__test_conf_file(file, output, data_path, pdb_id):
+    with open(file, 'r') as f:
+        f = f.read().splitlines()
+    new_conf = []
+    for i in f:
+        if i.startswith('protein'):
+            prot = pdb_id + '_protein.pdb'
+            new_conf.append(f'protein = {os.path.join(data_path, prot )}\n')
+        elif i.startswith('densmap'):
+            densmap = pdb_id + '.mrc'
+            new_conf.append(f'densmap = {os.path.join(data_path, densmap )}\n')
+        elif i.startswith('output'):
+            new_conf.append(f'output = { output }\n')
+
+        else:
+            line = i + '\n'
+            new_conf.append(line)
+    fn = pdb_id + '_conf.txt'
+    new_conf_path = os.path.join(output,fn)
+    with open(new_conf_path, 'w') as f:
+        f.writelines(new_conf)
+    return new_conf_path
+        
+        
+    
+    
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: chemem.py <config_file>")
+        print("Usage: chemem <config_file>")
         sys.exit(1)
     
     conf_file = sys.argv[1]
-
-    # read conf file
-    config = Config()
-    config.load_config(conf_file)
+    if conf_file in ['-h', '--help']:
+        print('Usage chemem <config file>')
+        sys.exit(1)
+    
+    if conf_file == '7jjo':
+        print('Usage chemem.test <pdb_id>')
+        sys.exit(1)
+    
+    if conf_file == '6tti':
+        print('Usage chemem.test <pdb_id>')
+        sys.exit(1)
+        pass
+    try:
+        # read conf file
+        config = Config()
+        config.load_config(conf_file)
+    
+    except FileNotFoundError:
+        print(f'FileNotFoundError no file named: { conf_file }')
+        sys.exit(1)
     # set up system
-    sys = SystemFactory()
-    sys.create_system(config)
+    new_system = SystemFactory()
+    new_system.create_system(config)
     # run commands
-    sys.make_run()
+    new_system.make_run()
 
 if __name__ == "__main__":
     main()

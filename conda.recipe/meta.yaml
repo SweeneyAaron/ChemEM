@@ -1,0 +1,37 @@
+package:
+  name: chemem
+  version: "0.0.1"
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  entry_points:
+    - chemem = ChemEM.chemem:main
+    - chemem.test = ChemEM.chemem:test
+
+requirements:
+  build:
+    - python=3.9
+    - pip
+  host:
+    - python=3.9
+  run:
+    - python=3.9
+    - openff-toolkit
+    - openff-toolkit-base
+    - openff-toolkit-examples
+    - spyrmsd
+    - pdbfixer
+    - pathos
+
+about:
+  home: https://chemem.topf-group.com/
+  license: Your License
+  summary: Software for fitting small molecules into Cryo-EM data.
+
+files:
+  - ChemEM/__tmp__/*
+  - ChemEM/__tmp__/amino_acids/*

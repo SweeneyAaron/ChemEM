@@ -1,0 +1,3 @@
+include ChemEM/tools/__tmp__/*
+recursive-include ChemEM/tools/amino_acids *
+recursive-include ChemEM/test_data/ *
