@@ -14,22 +14,24 @@ build:
 
 requirements:
   build:
-    - python=3.9
+    - python
     - pip
   host:
-    - python=3.9
+    - python
   run:
-    - python=3.9
+    - python
     - openff-toolkit
     - openff-toolkit-base
     - openff-toolkit-examples
     - spyrmsd
     - pdbfixer
     - pathos
+    - pyfftw
 
+    
 about:
   home: https://chemem.topf-group.com/
-  license: Your License
+  license: Copyright (c) 2023 - Topf Group and Leibniz Institute for Virology (LIV), Hamburg,  Germany. 
   summary: Software for fitting small molecules into Cryo-EM data.
 
 files:

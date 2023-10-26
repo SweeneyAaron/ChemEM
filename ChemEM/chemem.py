@@ -19,6 +19,11 @@ def test():
         sys.exit(1)
         
     pdb_id = sys.argv[1]
+    if pdb_id != '7jjo':
+        print("Usage: chemem.test <pdb_id>")
+        print('Currently included PDB IDs: 7jjo')
+        sys.exit(1)
+        
     data_path = f'{os.path.dirname(os.path.abspath(__file__))}/test_data/'
     conf_path = os.path.join(data_path, f'{pdb_id.lower()}_conf.txt')
     new_output_dir = f'./ChemEM_test_{pdb_id}' 

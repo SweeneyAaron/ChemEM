@@ -1,0 +1,23 @@
+#ChemEM config file
+
+#enable stages
+pre_process = 1
+pre_process_split_density = 1
+auto_split_point = 1
+auto_split_zone = 0
+fitting = 1
+dock_only = 0
+post_process = 1
+rescore = 0
+
+#data and working directory 
+protein = /Users/aaron.sweeney/opt/anaconda3/envs/test15/lib/python3.9/site-packages/ChemEM/test_data/7jjo_protein.pdb
+ligand = CC(C)NC[C@@H](c1ccc(c(c1)O)O)O
+densmap = /Users/aaron.sweeney/opt/anaconda3/envs/test15/lib/python3.9/site-packages/ChemEM/test_data/7jjo.mrc
+resolution = 2.6
+map_contour = 3.0
+centroid = (134.087, 133.507, 174.180)
+output = ./ChemEM_test_7jjo
+
+post_process_num_solutions = 5
+
