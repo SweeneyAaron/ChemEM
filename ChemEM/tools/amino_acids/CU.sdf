@@ -1,0 +1,20 @@
+CU
+  -OEChem-05312419083D
+
+  1  0  0     0  0  0  0  0  0999 V2000
+    0.0000    0.0000    0.0000 Cu  0  2  0  0  0  0  0  0  0  0  0  0
+M  CHG  1   1   2
+M  END
+> <OPENEYE_ISO_SMILES>
+[Cu+2]
+
+> <OPENEYE_INCHI>
+InChI=1S/Cu/q+2
+
+> <OPENEYE_INCHIKEY>
+JPVYNHNXODAKFH-UHFFFAOYSA-N
+
+> <FORMULA>
+Cu+2
+
+$$$$

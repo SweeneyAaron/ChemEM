@@ -1,0 +1,30 @@
+
+# ChemEM License
+
+This Software is (c) Leibniz Institute of Virology
+ChemEM (“The Software”)
+
+## 1. Academic Use  
+
+Permission is hereby granted for Academic Purposes, free of charge, to use, copy, modify, merge, and to distribute the Software, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+"Academic Purposes" means use by students, faculty (such as lecturers and PhD students), and researchers at educational or research institutions for teaching, not-for-profit research, and other educational purposes.
+
+## 2. Commercial Use 
+
+If you wish to use the Software for Commercial Purposes, including but not limited to any use in a commercial environment, or for the benefit of a for-profit entity, you must obtain a separate license. 
+“Commercial Purposes” include, but are not limited to: 
+- Use in a for-profit enterprise 
+- Use for product development outside of Academic Purposes
+- Use in a production environment outside of Academic Purposes
+To obtain a separate license, please contact maya.topf@cssb-hamburg.de to discuss licensing terms and fees.
+
+## 3. Third-Party Software 
+
+This Software contains third-party components which are licensed under Open Source licenses. This license does not apply to the Open Source licensed components, they are governed by their respective licenses. 
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+USERS ASSUME FULL RESPONSIBILITY FOR THE APPLICATION OF ChemEM OUTPUTS AND ANY SUBSEQUENT EFFECTS. 
+Users further agree that publication of any results obtained from the use of the Software will acknowledge itsrole by including the following citation in any published documents:
+    - Sweeney A., Mulvaney T., Maiorca M. & Topf M. ChemEM: flexible docking of small molecules in Cryo-EM structures using difference maps Journal of Medicinal Chemistry 2024; 67 (1), 199-212 DOI: 10.1021/acs.jmedchem.3c01134

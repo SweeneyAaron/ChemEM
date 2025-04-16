@@ -1,0 +1,20 @@
+NI
+  -OEChem-05312419103D
+
+  1  0  0     0  0  0  0  0  0999 V2000
+    0.0000    0.0000    0.0000 Ni  0  2  0  0  0  0  0  0  0  0  0  0
+M  CHG  1   1   2
+M  END
+> <OPENEYE_ISO_SMILES>
+[Ni+2]
+
+> <OPENEYE_INCHI>
+InChI=1S/Ni/q+2
+
+> <OPENEYE_INCHIKEY>
+VEQPNABPJHWNSG-UHFFFAOYSA-N
+
+> <FORMULA>
+Ni+2
+
+$$$$
