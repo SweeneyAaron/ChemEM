@@ -83,8 +83,7 @@ class PostProcessing:
                     protein_positions =  self.system.docking_jobs[0].complex_system.positions) )
         
     def post_process_solutions(self):
-        import pdb 
-        pdb.set_trace()
+        
         self.system.post_processed_solutions = []
         for num, solution in enumerate(self.system.docking_jobs[0].best_solutions):
             if num + 1 > self.system.post_process_num_solutions:
