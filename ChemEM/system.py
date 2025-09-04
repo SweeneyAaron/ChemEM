@@ -85,6 +85,11 @@ class System():
         self.protocols = []
         self.post_process_radius = 15.0
         
+        #alpha_mask_options 
+        
+        self.am_sigma_thr = 2.0
+        self.alpha_pad = 8.0
+        
    
     def __repr__(self):
         return Messages.system_repr(self)

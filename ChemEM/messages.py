@@ -139,5 +139,10 @@ class Messages:
         print("""Usage: 
               \tchemem.protonate <config_file>
               \tchemem.protonate <ligand smiles>""")
+    @staticmethod 
+    def alpha_mask_usage():
+        print("""Usage: 
+              \tchemem.protonate <config_file>""")
+        
         
         

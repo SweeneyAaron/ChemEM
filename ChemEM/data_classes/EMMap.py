@@ -12,7 +12,7 @@ import mrcfile
 from scipy.fftpack import fftn, ifftn
 from scipy.ndimage import fourier_gaussian
 import copy
-from ChemEM.tools.map_tools import MapTools
+
 
 class EMMap:
     def __init__(self,
@@ -78,9 +78,7 @@ class EMMap:
     
     def set_map_contour(self):
         self.map_contour = 0.0
-        #self.map_contour = MapTools.map_contour(self, t = 3.0)
-        #self.map_contour = None
-       
+        
     
     def write_mrc(self, outfile):
         
@@ -123,7 +121,39 @@ class EMMap:
                 mrc.header.exttyp = self.exttyp
             if hasattr(self, 'extended_header'):
                 mrc.set_extended_header(self.extended_header)
-            
+    
+    def center_of_mass(self):
+        """
+        Calculate the center of mass (COM) of non-zero voxels in a 3D numpy array.
+        
+        Parameters:
+            array (np.ndarray): 3D array with voxel values.
+            origin (tuple): The origin coordinates (x, y, z) in real space.
+            apix (float): The spacing between grid points (angstroms per pixel).
+        
+        Returns:
+            tuple: Center of mass coordinates in real-space (x, y, z).
+        """
+        # Ensure the array is a 3D NumPy array
+        if not isinstance(self.density_map, np.ndarray) or self.density_map.ndim != 3:
+            raise ValueError("Input array must be a 3D NumPy array.")
+        
+        # Get the indices of the non-zero voxels
+        indices = np.array(np.nonzero(self.density_map)).T  # shape: (N, 3) where N is the number of non-zero voxels
+        
+        if indices.size == 0:
+            raise ValueError("The input array contains no non-zero voxels.")
+        
+        # Calculate the weights (values of the non-zero voxels)
+        #weights = self.density_map[self.density_map > 0]
+        weights = self.density_map[indices[:, 0], indices[:, 1], indices[:, 2]]
+        # Compute the center of mass in grid coordinates
+        com_grid = np.average(indices, axis=0, weights=weights)  # Weighted average of indices
+        com_grid = com_grid[::-1] # convert to z,y,x
+        # Convert grid coordinates to real-space coordinates
+        com_real = np.array(self.origin) + self.apix * com_grid
+        
+        return tuple(com_real)
             
     def copy(self):
         return copy.deepcopy(self)

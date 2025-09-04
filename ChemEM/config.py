@@ -19,6 +19,7 @@ import os
 
 @dataclass
 class Config:
+    alpha_mask : bool = field(default=False)
     pre_process : bool = field(default=True)
     fitting : bool = field(default=False)
     post_process : bool = field(default=False)
@@ -159,6 +160,13 @@ class Config:
                 setattr(system, attr, value)
         
         #---------------Set Protocols
+        
+        if self.alpha_mask:
+            #alpha mask is self contatined from ChemEM 2.0.0 
+            #it has been segmeneted from the main functionality 
+            #but still relies on a system conf.
+            system.add_protocol(protocol_selector('alpha_mask'))
+            return system 
         
         system.add_protocol(protocol_selector('pre_process'))
         

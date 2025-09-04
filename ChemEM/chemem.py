@@ -22,6 +22,29 @@ def test():
     sys.exit(0)
 
 
+def alpha_mask():
+    #TODO DRY Move to system function
+    if len(sys.argv) != 2:
+        Messages.alpha_mask_usage()
+        sys.exit(1)
+    
+    conf_file = sys.argv[1]
+    if conf_file in ['-h', '--help']:
+        print('Usage chemem <config file>')
+        sys.exit(1)
+    try:
+        print(Messages.load_config())
+        # read conf file
+        config = Config()
+        new_system = config.load_config(conf_file)
+    
+    except Exception as e:
+        print(Messages.fatal_exception('Main', e))
+        sys.exit(1)
+    
+    new_system.run()
+        
+
 def protonate():
     
     if len(sys.argv) != 2:
@@ -110,7 +133,8 @@ def main():
     new_system.run()
 
 if __name__ == "__main__":
-    #export_simulation()
+    
     main()
+    
     
     

@@ -15,6 +15,7 @@ from ChemEM.protocols.auto_split_zone import AutoSplitZone
 from ChemEM.protocols.fitting import Fitting 
 from ChemEM.protocols.post_processing import PostProcessing
 from ChemEM.protocols.rescore import Rescore
+from ChemEM.protocols.alpha_mask import AlphaMask
 
 def protocol_selector(protocol_name):
     if protocol_name == 'pre_process':
@@ -42,6 +43,8 @@ def protocol_selector(protocol_name):
     
     elif protocol_name == 'rescore':
         return Rescore
+    elif protocol_name == 'alpha_mask':
+        return AlphaMask
     
     
         
