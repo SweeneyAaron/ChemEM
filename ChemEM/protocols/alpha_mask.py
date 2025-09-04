@@ -43,6 +43,7 @@ from ChemEM.tools.math import MathTools
 from ChemEM.tools.map_tools import MapTools
 from ChemEM.protocols.threshold_map import ConfidenceMap
 from ChemEM.data_classes.EMMap import EMMap
+from ChemEM.messages import Messages
 
 class AlphaMask:
     
@@ -224,6 +225,7 @@ class AlphaMask:
        
 
     def run(self):
+        print(Messages.alpha_mask())
         self.mk_output() 
         self.get_protein_structure()
         self.set_grid_spacing()
