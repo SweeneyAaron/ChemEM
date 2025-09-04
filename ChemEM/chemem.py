@@ -13,7 +13,7 @@ import ChemEM
 from ChemEM.config import Config
 from ChemEM.messages import Messages
 from ChemEM.tools.rdtools import RDTools
-
+from ChemEM.protocol import protocol_selector
 
 def test():
     
@@ -24,8 +24,9 @@ def test():
 
 def alpha_mask():
     #TODO DRY Move to system function
+    print(Messages.intro(ChemEM.__version__))
     if len(sys.argv) != 2:
-        Messages.alpha_mask_usage()
+        print(Messages.alpha_mask_usage())
         sys.exit(1)
     
     conf_file = sys.argv[1]
@@ -37,6 +38,9 @@ def alpha_mask():
         # read conf file
         config = Config()
         new_system = config.load_config(conf_file)
+        new_system.protocols = []
+        new_system.add_protocol(protocol_selector('alpha_mask'))
+        
     
     except Exception as e:
         print(Messages.fatal_exception('Main', e))
@@ -48,7 +52,7 @@ def alpha_mask():
 def protonate():
     
     if len(sys.argv) != 2:
-        Messages.protonation_usage()
+        print(Messages.protonation_usage())
         sys.exit(1)
     
     conf_file = sys.argv[1]

@@ -8,7 +8,7 @@
 
 
 
-__version__ = '0.0.4'
+__version__ = '0.0.6'
 #from .config import Config
 #from .messages import Messages
 #from .system import System
